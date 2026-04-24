@@ -262,7 +262,7 @@ de cor vermelha, com uma seta saindo dele e apontando para uma frase escrita: 'O
 revestido por um tapete vermelho, todo decorado, no ar você sente uma leve neblina tomando conta de todo espaço... E no fim desse enorme salão, um trono pode ser visto no meio, 
 com uma figura sentada nele...");
         Falas.Narrador(@"Usando vestimentas pretas cobrindo todo seu corpo, uma grande capa vermelha, pele branca acinzentada, orelhas pontudas, com dedos longos e pontudos. 
-Ela parece estar com o olhar baixo..."); 
+Ela parece estar com o olhar baixo...");
         Falas.Narrador(@"A figura então sente que chegou algúem, ela levanta o olhar, relevando um rosto amendrontador, com olhos vazios, com buracos no lugar dos olhos...");
         Falas.Inimigo("???", "Olá, muito prazzer, o que te traz aqui...");
         Falas.Jogador($"{NomeJogador}", "Então você é o tal vampiro que tanto falam? Eu vim buscar algo que eu preciso.");
@@ -288,6 +288,81 @@ Ela parece estar com o olhar baixo...");
         Falas.Jogador($"{NomeJogador}", "Então vem!");
 
         BatalhaFinal();
+
+        Console.Clear();
+
+        Falas.Narrador("Você finalmente derrota Velisar, e o corpo do vampiro começa a se dissolver na sua frente, revelando apenas um coração preto em meio ao que antes era seu corpo...");
+        Falas.Narrador("Você então se aproxima do coração, e ao segurá-lo nas mãos, você sente sua cabeça girar, uma tontura toma conta de você, e parece só aumentar...");
+        Falas.Narrador("Chega uma hora que você apenas não aguenta e desmaia, caindo no chão.");
+
+        Console.Write("Aperte ENTER pra continuar. ");
+        Console.ReadLine();
+
+        Falas.Narrador("Após uns segundos desacordado, você começa a retomar seus sentidos, e vai abrindo os olhos, e quando finalmente abre-os por completo, você lembra de tudo...");
+        Falas.Narrador(@"Você era um grande guerreiro dessa terra, lutava todas as batalhas para proteger todos. Porém, certo dia, em uma dessas batalhas, você foi enfrentar um grande mago, amigo seu,
+que foi possuído por esse Vampiro dessa Masmorra que você acabou de derrotar.");
+        Falas.Narrador("Você claramente lutava não para machucá-lo, mas para tentar restaurar sua consciência.");
+        Falas.Narrador("Então, no meio da batalha, o seu amigo, que agora se via possuído, arruma uma brecha e te derruba no chão, e te lança um feitiço de perda de memória.");
+        Falas.Narrador("Após isso, você só lembra do Mago te levar para esse vilarejo que você conheceu, no meio das estradas, largado.");
+        Falas.Narrador("\nDepois dessa chuva de informações, você então sai correndo para fora da masmorra.");
+
+        Console.Write("Aperte ENTER pra continuar. ");
+        Console.ReadLine();
+
+        Console.Clear();
+
+        Falas.Narrador("Chegando na superfície, o sol está se pondo, e você imediatamente sai correndo em direção a Taverna, para falar com Marius");
+        Falas.Narrador("Porém, ao abrir a porta da Taverna, você não vê ninguém.");
+        Falas.Narrador("Aquela taverna, que nas suas lembranças era repleta de pessoas todos os dias, agora está vazia.");
+        Falas.Narrador("E você só consegue ver uma coisa de destaque além disso, um bilhete no balcão, onde Marius havia lhe colocado:");
+        Falas.NPC(@"Marius",$@"'{NomeJogador}, provavelmente quando você voltar eu não estarei mais aqui, mas eu sei quem você é, sempre soube. Você sempre lutou e batalhou por nós, porém, após a batalha
+com Torvo, o mago, que está possuído, o responsável que tirou suas memórias, vi você no meio da estrada, completamente derrotado. Então eu te resgatei, e fingi não te conhecer. Eu sabia que não podia te recordar 
+das suas memórias pois isso poderia desencadiar uma sobrecarga mental e te levar a óbito. Entretanto, há muitos anos, o próprio Torvo, meu grande amigo, havia me dito sobre a lenda do Vampiro da masmorra, 
+que você acabou de derrotar, então pensei que essa seria a forma mais segura de recuperar suas memórias, através de você mesmo. E por que estou escrevendo essa carta? Porque o próprio Torvo, possuído, me disse que
+caso eu contasse isso para algúem, eu seria levado por ele, então não tive escolha... Foi um prazer te conhecer {NomeJogador}, caso eu não seja morto, ficarei muito feliz em te ver novamente... ");
+
+        Console.Write("Aperte ENTER pra finalizar. ");
+        Console.ReadLine();
+
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.DarkBlue;
+        Console.WriteLine();
+        Console.WriteLine(@"
+        
+        ╔════════════════════════════════════════╗
+        ║                  FIM                   ║
+        ╚════════════════════════════════════════╝
+
+        ");
+
+        Console.Write("Aperte ENTER pra finalizar. ");
+        Console.ReadLine();
+
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.DarkBlue;
+        Console.WriteLine();
+        Console.WriteLine(@"
+        
+        ╔════════════════════════════════════════╗
+        ║         O CORAÇÃO DA RUÍNA RPG         ║
+        ╚════════════════════════════════════════╝
+
+        ");
+
+        Thread.Sleep(2000);
+
+        Console.Clear();
+        Console.WriteLine();
+        Console.WriteLine(@"
+        
+
+             Desenvolvido por Matheus Cutrim
+        
+
+        ");
+
+        Thread.Sleep(2000);
+
     }
 
     private static void MasmorraDireita()
@@ -394,7 +469,7 @@ que antes parecia um baú estilizado, agora, revela uma criatura asquerosa que u
             Falas.Inimigo("???", "AAAAAHHGRRR!");
             Thread.Sleep(1000);
         }
-            
+
 
         Mimic mimic = new Mimic("Mimic");
         Musica.Parar();
@@ -431,17 +506,20 @@ orelhas pontudas, e olhos pretos, parece um vampiro pequeno, provavelmente servo
         Console.ReadLine();
 
         Vampiro vampiro1 = new Vampiro("Vampiro Servo");
-        
+
         Musica.Parar();
         Musica.Tocar("Assets/Batalha.wav");
-        Combate.Duelo(Jogador, vampiro1);
         venceu = Combate.Duelo(Jogador, vampiro1);
         Musica.Parar();
 
         if (!venceu)
         {
             Falas.Sistema("Você desperta novamente na entrada da masmorra...");
+
+            Jogador.RestaurarVida();
+            Console.Write("Aperte ENTER para voltar. ");
             Console.ReadLine();
+            Console.Clear();
             MasmorraDireita();
             return;
         }
@@ -471,7 +549,11 @@ orelhas pontudas, e olhos pretos, parece um vampiro pequeno, provavelmente servo
         {
             Falas.Inimigo("Velisar", "Vvocê foi beemm diverttido...");
             Falas.Sistema("Você desperta novamente...");
+
+            Jogador.RestaurarVida();
+            Console.Write("Aperte ENTER para voltar. ");
             Console.ReadLine();
+            Console.Clear();
             BatalhaFinal();
             return;
         }
