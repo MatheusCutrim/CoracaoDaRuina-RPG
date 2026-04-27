@@ -1,56 +1,68 @@
 # CoracaoDaRuina-RPG
 RPGzin criado através de conheciementos básicos de POO em C#.
 
-Estudo de POO com esse jogo: Os 4 Pilares.
+Estudo de POO com esse jogo: **Os 4 Pilares.**
 
-**Encapsulamento🔒**:
+---
+
+## **Encapsulamento🔒**
 Esconde os dados internos da classe e controla o acesso.
 
-Usa: `private`, `protected`, `public`.
-Evita bagunça e acesso indevido.
+- Usa: `private`, `protected`, `public`.
+- Evita bagunça e acesso indevido.
 
 Ex:
 private int vida;
-
-`public void ReceberDano(int dano)
+```csharp
+public void ReceberDano(int dano)
 {
     vida -= dano;
-}`
+}
+```
 
-**Herança🧬**:
+## **Herança🧬**
 Uma classe herda características de outra.
 
-Reutiliza código.
-Cria hierarquia.
+- Reutiliza código.
+- Cria hierarquia.
 
 Ex:
-`class Personagem { }
-class Guerreiro : Personagem { }`
+```csharp
+class Personagem { }
 
-**Polimorfismo🔄**:
+class Guerreiro : Personagem { }`
+```
+
+## **Polimorfismo🔄**
 Um mesmo método pode ter comportamentos diferentes.
 
-Usa: `override`, `virtual`.
-Cada classe faz do seu jeito.
+- Usa: `override`, `virtual`.
+- Cada classe faz do seu jeito.
 
 Ex:
-`public virtual void Atacar() { }
+```csharp
+public virtual void Atacar() { }
+
 public override void Atacar()
 {
     // ataque diferente
-}`
+}
+```
 
-**Abstração🧩**: 
+## **Abstração🧩** 
 Mostra só o essencial e esconde a complexidade.
 
-Usa: `abstract`, `interface`
-Define “o que fazer”, não “como”.
+- Usa: `abstract`, `interface`.
+- Define “o que fazer”, não “como”.
 
 Ex:
-`abstract class Personagem
+```csharp
+abstract class Personagem
 {
     public abstract void Atacar();
-}`
+}
+```
+---
 
 **Resumo em 1 linha**:
 Encapsulamento → proteger dados
