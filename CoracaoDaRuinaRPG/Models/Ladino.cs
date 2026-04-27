@@ -56,7 +56,7 @@ public class Ladino : Personagem, IAtaque
     }
     public override void ReceberDano(int dano)
     {
-        if(Foco >= 25)
+        if(Foco >= 21)
         {
             dano = 0;
             Vida -= dano;

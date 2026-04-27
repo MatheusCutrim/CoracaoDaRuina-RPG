@@ -28,10 +28,14 @@ public static class Jogo
         Console.WriteLine();
         Console.WriteLine(@"
         
-        ╔════════════════════════════════════════╗
-        ║         O CORAÇÃO DA RUÍNA RPG         ║
-        ╚════════════════════════════════════════╝
-
+        ╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+        ║                                    ▄▀▄▀                                                        ║
+        ║    ▄█████  ▄▄▄  ▄▄▄▄   ▄▄▄   ▄▄▄▄  ▄▄▄   ▄▄▄    ▄▄▄▄   ▄▄▄    █████▄  ▄▄ ▄▄ ▄▄ ▄▄  ▄▄  ▄▄▄     ║
+        ║    ██     ██▀██ ██▄█▄ ██▀██ ██▀▀▀ ██▀██ ██▀██   ██▀██ ██▀██   ██▄▄██▄ ██ ██ ██ ███▄██ ██▀██    ║ 
+        ║    ▀█████ ▀███▀ ██ ██ ██▀██ ▀████ ██▀██ ▀███▀   ████▀ ██▀██   ██   ██ ▀███▀ ██ ██ ▀██ ██▀██    ║
+        ║                               ▄█                                                               ║
+        ╚════════════════════════════════════════════════════════════════════════════════════════════════╝  
+                                                                                         
         ");
 
         Thread.Sleep(2000);
@@ -86,13 +90,13 @@ public static class Jogo
 
     private static void Introducao()
     {
-        Falas.Narrador(@"Você começa a acordar e abrir os olhos... parece estar sentado em uma cadeira de madeira velha, apoiando os braços em algum tipo de bancada, 
+        Falas.Narrador(@"Você começa a acordar e abrir os olhos... parece estar sentado em uma cadeira de madeira velha, apoiando os braços em algum tipo de balcão, 
 e uma tontura toma conta da sua cabeça...");
         Falas.Narrador(@"O cheiro de madeira queimada e cerveja velha preenchem o ar. Quando você finalmente recupera os sentidos, você sente um vazio na mente, 
 como se sua memória tivesse sido apagada...");
         Falas.Narrador("Nesse momento, um velho com uma barba branca, meio calvo, usando vestimentas velhas se aproxima de você: ");
         Console.WriteLine();
-        Falas.NPC($"???", "Bom dia meu jovem, finalmente acordou em, tava cansado né? Ontem eu te vi no meio da estrada desmaiado, e te trouxe pra cá pra ver o que tinha acontecido");
+        Falas.NPC($"???", "Bom dia meu jovem, finalmente acordou em, tava cansado né? Ontem a noite eu te vi no meio da estrada desmaiado, e te trouxe pra cá pra ver o que tinha acontecido");
         Falas.NPC($"???", "Antes de tentar entender melhor o que aconteceu contigo, qual teu nome? ");
 
         NomeJogador = Validacoes.ValidandoNome();
@@ -101,6 +105,7 @@ como se sua memória tivesse sido apagada...");
         Falas.NPC($"???", "A propósito, esqueci de me apresentar, eu sou Marius, dono da Taverna desse vilarejo! Normalmente ela sempre está cheia, está meio vazia agora por conta da hora.");
         Falas.NPC($"Marius", "Outra coisa que reparei em você, suas vestimentas longas talvez escondem o seu passado, poderia mostrar como suas mãos estão?");
         Falas.NPC($"Marius", "Se me mostrar, posso te guiar para um lugar que pode te ajudar a recuperar suas memórias, mas antes preciso saber de você.");
+        Console.WriteLine();
 
         Falas.Sistema(@"[1] Estão calejadas e marcadas por batalhas (Guerreiro)
 [2] Estão finas, com manchas de tinta e ervas (Mago)
@@ -113,16 +118,17 @@ como se sua memória tivesse sido apagada...");
             Jogador = new Guerreiro(NomeJogador);
             Falas.NPC("\nMarius", "Então você é um Guerreiro, pela suas cicatrizes, ficou fácil de identificar...");
             Falas.NPC("Marius", "Vou lhe dar uma coisa que pode te ajudar, espera um segundo.");
-            Falas.Sistema("Marius entra por trás da cozinha da taverna, e após alguns segundos, volta com uma Espada Longa de duas mãos, e uma grande Armadura de Ferro.");
+            Falas.Narrador("Marius entra por trás da cozinha da taverna, e após alguns segundos, volta com uma Espada Longa de duas mãos, e uma grande Armadura de Ferro.");
             Falas.NPC("Marius", "Um guerreiro como você deve aguentar isso.");
         }
         else if (classe == 2)
         {
             Falas.NPC("\nMarius", "UAU! Um mago por aqui, há anos não via um desses, e sobre seu elemento? Acredito que não se lembre, mas eu posso lhe recordar...");
-            Falas.Sistema("Marius entorna uma taça de vinho e olha fixamente para você.");
+            Falas.Narrador("Marius entorna uma taça de vinho e olha fixamente para você.");
             Falas.NPC("Marius", "Vamos ver se assim você se lembra...");
-            Falas.Sistema("Marius então joga um punhado de pó no ar e uma chama rosada surge entre vocês.");
+            Falas.Narrador("Marius então joga um punhado de pó no ar e uma chama rosada surge entre vocês.");
             Falas.NPC("Marius", "O que você sente?");
+            Console.WriteLine();
 
             Falas.Sistema(@"[1] Vontade de alimentá-la, vê-la crescer e consumir tudo
 [2] Vontade de apagá-la, substituí-la pelo frio e pela calma
@@ -144,7 +150,7 @@ como se sua memória tivesse sido apagada...");
                 Jogador = new Mago(NomeJogador, Feiticos.Eletricidade);
 
             Falas.NPC("\nMarius", "Ótimo, agora que sei isso, vou lhe entregar algo que vai te ajudar.");
-            Falas.Sistema("Marius entra por trás da cozinha da taverna, e após alguns segundos, ele volta com um Manto de cor azul escuro, e um Cajado de Madeira");
+            Falas.Narrador("Marius entra por trás da cozinha da taverna, e após alguns segundos, ele volta com um Manto de cor azul escuro, e um Cajado de Madeira");
             Falas.NPC("Marius", "Pronto, isso aqui foi de um antigo mago que frequentava essa taverna, acho que vai servir pra você.");
         }
         else if (classe == 3)
@@ -152,11 +158,11 @@ como se sua memória tivesse sido apagada...");
             Jogador = new Ladino(NomeJogador);
             Falas.NPC("\nMarius", "Um ladino, não sou muito chegado a eles, principalmente porque TODO DIA um deles rouba bebidas sem eu perceber.");
             Falas.NPC("Marius", "Mas como você parece ser tranquilo, vou lhe dar algo que pode te ajudar.");
-            Falas.Sistema("Marius entra por trás da cozinha da taverna, e após alguns segundos, ele volta com duas pequenas Adagas bem afiadas, e um manto Vermelho.");
+            Falas.Narrador("Marius entra por trás da cozinha da taverna, e após alguns segundos, ele volta com duas pequenas Adagas bem afiadas, e um manto Vermelho.");
             Falas.NPC("Marius", "Pronto, isso aqui foi uma das coisas que consegui pegar de um deles quando tentaram de roubar de novo, vai servir pra você.");
         }
 
-        Console.Write("Aperte ENTER pra continuar. ");
+        Console.Write("\nAperte ENTER pra continuar. ");
         Console.ReadLine();
 
         Console.Clear();
@@ -175,9 +181,9 @@ acho que é a melhor coisa.");
         Falas.NPC("Marius", "Tem mais um detalhe, ninguém que foi, voltou...");
         Falas.Jogador($"{NomeJogador}", "Então terei que ser o primeiro. Valeu por tudo Marius, volto mais tarde com notícias.");
         Falas.NPC("Marius", $"Boa sorte {NomeJogador}! Você de longe é um dos mais corajosos que já conheci, espero que consiga.");
-        Falas.Sistema($"*Você acena uma última vez pra Marius, pensando que essa pode ser a última vez que tenha uma conversa com algúem...*");
+        Falas.Narrador($"*Você acena uma última vez pra Marius, pensando que essa pode ser a última vez que tenha uma conversa com algúem...*");
 
-        Console.Write("Aperte ENTER pra continuar. ");
+        Console.Write("\nAperte ENTER pra continuar. ");
         Console.ReadLine();
     }
 
@@ -185,9 +191,9 @@ acho que é a melhor coisa.");
     {
         Console.Clear();
 
-        Falas.Sistema("Você caminha reto em direção ao sul do vilarejo, mais ou menos uns 30 minutos, e chega até uma grande abertura de caverna.");
-        Falas.Sistema("Ao lado da grande abertura, uma placa de madeira escrita 'Masmorra do Coração da Ruína' pode ser vista.");
-        Falas.Sistema(@"Você só pensa em recuperar suas memórias, então sem pensar, você pega uma tocha que estava encostada ao lado da placa, acende, 
+        Falas.Narrador("Você caminha reto em direção ao sul do vilarejo, mais ou menos uns 30 minutos, e chega até uma grande abertura de caverna.");
+        Falas.Narrador("Ao lado da grande abertura, uma placa de madeira escrita 'Masmorra do Coração da Ruína' pode ser vista.");
+        Falas.Narrador(@"Você só pensa em recuperar suas memórias, então sem pensar, você pega uma tocha que estava encostada ao lado da placa, acende, 
 e adentra naquela escuridão...");
 
         Console.Write("Aperte ENTER pra continuar. ");
@@ -195,10 +201,10 @@ e adentra naquela escuridão...");
 
         Console.Clear();
 
-        Falas.Sistema("Ao entrar, você sente um frio, sons estranhos ao redor da grande masmorra, mas você continua indo em linha reta.");
-        Falas.Sistema("Até que poucos segundos depois, você escuta:");
+        Falas.Narrador("Ao entrar, você sente um frio, sons estranhos ao redor da grande masmorra, mas você continua indo em linha reta.");
+        Falas.Narrador("Até que poucos segundos depois, você escuta:");
         Falas.NPC("???", "SOCORRO, SOCORRO!");
-        Falas.Sistema(@"Você imediatamente corre em direção do grito, e ao chegar, você vê um homem atrás de uma pedra, e na sua frente, o que parece ser um
+        Falas.Narrador(@"Você imediatamente corre em direção do grito, e ao chegar, você vê um homem atrás de uma pedra, e na sua frente, o que parece ser um
 esqueleto em pé, usando uma armadura, uma espada e um escudo, prestes a atacar o homem.");
         Falas.NPC("???", "ME AJUDA, SOCORRO!!!");
         Falas.Jogador(NomeJogador, "EI! Vem atacar algúem do teu tamanho");
@@ -222,7 +228,7 @@ esqueleto em pé, usando uma armadura, uma espada e um escudo, prestes a atacar 
         Console.Clear();
 
         Musica.Tocar("Assets/Masmorra.wav");
-        Falas.Sistema("Após você terminar de derrotar o Esqueleto, o homem vira pra você e diz:");
+        Falas.Narrador("Após você terminar de derrotar o Esqueleto, o homem vira pra você e diz:");
         Falas.NPC("???", "Meu Deus, muito obrigado por me salvar... Achei que ia morrer!");
         Falas.Jogador($"{NomeJogador}", "Nada. Mas o que você tá fazendo aqui??");
         Falas.NPC("???", @"Eu tava tentando achar umas gemas, pensei que caso eu viesse sem chamar muita atenção eu conseguiria pegar e sair rápido, até que esse 
@@ -232,10 +238,10 @@ bixo apareceu");
         Falas.Sistema("*Ele te entrega um Mapa*");
         Falas.NPC("???", "Parece ser o mapa desse lugar, é gigante...");
         Falas.Jogador($"{NomeJogador}", "Caramba! Valeu por isso, vai ser útil. Qual seu nome?");
-        Falas.NPC("???", "Meu nome é Zéfero, moro no vilarejo aqui perto.");
-        Falas.Jogador($"{NomeJogador}", $"Prazer Zéfero, {NomeJogador}, vou tentar entender melhor esse lugar, agora pode sair daqui.");
-        Falas.NPC("???", "Obrigado mais uma vez!");
-        Falas.Sistema("*Zéfero sai correndo do lugar.*");
+        Falas.NPC("???", "Meu nome é Plautus, moro no vilarejo aqui perto.");
+        Falas.Jogador($"{NomeJogador}", $"Prazer Plautus, {NomeJogador}, vou tentar entender melhor esse lugar, agora pode sair daqui.");
+        Falas.NPC("Plautus", "Obrigado mais uma vez!");
+        Falas.Narrador("*Plautus sai correndo do lugar.*");
 
         Console.Write("\nAperte ENTER pra continuar. ");
         Console.ReadLine();
@@ -274,10 +280,10 @@ Ela parece estar com o olhar baixo...");
         Falas.Jogador($"{NomeJogador}", "Preciso saber o que aconteceu comigo, e me disseram que esse seu coração pode fazer isso.");
         Falas.Inimigo("Velisar", "...");
         Falas.Inimigo("Velisar", "Acceita um vinnho??");
-        Falas.Jogador($"{NomeJogador}", "Que?? Não interessa pra você, vai me dar seu coração por bem ou por mal?");
+        Falas.Jogador($"{NomeJogador}", "Que?? Tá brincando?");
         Falas.Narrador($"Sua cabeça começa a pulsar, como se uma briga estivesse acontecendo no seu cérebro. Dói demais.");
         Falas.Jogador($"{NomeJogador}", "AAAAHHH! Olha só, eu preciso desse coração, vai me dar seu coração por bem ou por mal?");
-        Falas.Inimigo("Velisar", "Não acho mmuito educcado da sua pparte virr aqui atráás da mminha relíquia, mas reconhheço sua coragemm...");
+        Falas.Inimigo("Velisar", "Não acho mmuito educcado da sua pparte virr aqui atráás da mminha relíquia, e isso mme irrita...");
         Falas.Jogador($"{NomeJogador}", "Então vai ser por mal mesmo?");
         Falas.Inimigo("Velisar", "...");
         Falas.Inimigo("Velisar", "...");
@@ -286,6 +292,9 @@ Ela parece estar com o olhar baixo...");
         Falas.Narrador($"Velisar levanta do trono, revelando seus mais de 2 metros de altura, e começa a andar calmamente em sua direção...");
         Falas.Inimigo("Velisar", "Não qqueria ter que mmatar você, mass já faz um temmpo que algúemm não chegga até aqui, quero brinncar umm pouco...");
         Falas.Jogador($"{NomeJogador}", "Então vem!");
+
+        Console.Write("Aperte ENTER pra batalhar.");
+        Console.ReadLine();
 
         BatalhaFinal();
 
@@ -315,7 +324,7 @@ que foi possuído por esse Vampiro dessa Masmorra que você acabou de derrotar."
         Falas.Narrador("Porém, ao abrir a porta da Taverna, você não vê ninguém.");
         Falas.Narrador("Aquela taverna, que nas suas lembranças era repleta de pessoas todos os dias, agora está vazia.");
         Falas.Narrador("E você só consegue ver uma coisa de destaque além disso, um bilhete no balcão, onde Marius havia lhe colocado:");
-        Falas.NPC(@"Marius",$@"'{NomeJogador}, provavelmente quando você voltar eu não estarei mais aqui, mas eu sei quem você é, sempre soube. Você sempre lutou e batalhou por nós, porém, após a batalha
+        Falas.NPC(@"Marius", $@"'{NomeJogador}, provavelmente quando você voltar eu não estarei mais aqui, mas eu sei quem você é, sempre soube. Você sempre lutou e batalhou por nós, porém, após a batalha
 com Torvo, o mago, que está possuído, o responsável que tirou suas memórias, vi você no meio da estrada, completamente derrotado. Então eu te resgatei, e fingi não te conhecer. Eu sabia que não podia te recordar 
 das suas memórias pois isso poderia desencadiar uma sobrecarga mental e te levar a óbito. Entretanto, há muitos anos, o próprio Torvo, meu grande amigo, havia me dito sobre a lenda do Vampiro da masmorra, 
 que você acabou de derrotar, então pensei que essa seria a forma mais segura de recuperar suas memórias, através de você mesmo. E por que estou escrevendo essa carta? Porque o próprio Torvo, possuído, me disse que
@@ -335,18 +344,21 @@ caso eu contasse isso para algúem, eu seria levado por ele, então não tive es
 
         ");
 
-        Console.Write("Aperte ENTER pra finalizar. ");
-        Console.ReadLine();
+        Thread.Sleep(2000);
 
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.DarkBlue;
         Console.WriteLine();
         Console.WriteLine(@"
         
-        ╔════════════════════════════════════════╗
-        ║         O CORAÇÃO DA RUÍNA RPG         ║
-        ╚════════════════════════════════════════╝
-
+        ╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+        ║                                    ▄▀▄▀                                                        ║
+        ║    ▄█████  ▄▄▄  ▄▄▄▄   ▄▄▄   ▄▄▄▄  ▄▄▄   ▄▄▄    ▄▄▄▄   ▄▄▄    █████▄  ▄▄ ▄▄ ▄▄ ▄▄  ▄▄  ▄▄▄     ║
+        ║    ██     ██▀██ ██▄█▄ ██▀██ ██▀▀▀ ██▀██ ██▀██   ██▀██ ██▀██   ██▄▄██▄ ██ ██ ██ ███▄██ ██▀██    ║ 
+        ║    ▀█████ ▀███▀ ██ ██ ██▀██ ▀████ ██▀██ ▀███▀   ████▀ ██▀██   ██   ██ ▀███▀ ██ ██ ▀██ ██▀██    ║
+        ║                               ▄█                                                               ║
+        ╚════════════════════════════════════════════════════════════════════════════════════════════════╝  
+                                                                                         
         ");
 
         Thread.Sleep(2000);
@@ -411,7 +423,7 @@ está pronto para o que vier.");
         if (Validacoes.ValidacaoSimNao() == 1)
         {
             Falas.Sistema(@"Você vai em direção ao baú, e ao tocar nele... UMA BOCA se abre de dentro do baú, revelando uma criatura asquerosa que usa a tampa
-do baú como grande boca com dentes afiados que tentam te morder!");
+do baú como uma grande boca com dentes afiados que tentam te morder!");
             Falas.Inimigo("???", "AAAAAHHGRRR!");
             Thread.Sleep(500);
         }

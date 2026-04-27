@@ -92,23 +92,36 @@ public class Mago : Personagem, IAtaque
         Mana -= 20;
     }
 
+        private int DanoFogo = 30;
+        private int DanoGelo = 25;
+        private int DanoTerra = 35;
+        private int DanoAr = 25;
+        private int DanoEletricidade = 30;
+
     public int DanoEspecial(Feiticos poder)
     {
         switch (poder)
         {
-            case Feiticos.Fogo: return 30;
-            case Feiticos.Gelo: return 25;
-            case Feiticos.Terra: return 35;
-            case Feiticos.Ar: return 25;
-            case Feiticos.Eletricidade: return 30;
+            case Feiticos.Fogo: return DanoFogo;
+            case Feiticos.Gelo: return DanoGelo;
+            case Feiticos.Terra: return DanoTerra;
+            case Feiticos.Ar: return DanoAr;
+            case Feiticos.Eletricidade: return DanoEletricidade;
             default: return 5;
         }
     }
 
     public override void AumentarDano()
     {
-        int valor = 15;
+        int valor = 10;
         DanoBase += valor;
+
+        DanoFogo += valor;
+        DanoGelo += valor;
+        DanoTerra += valor;
+        DanoAr += valor;
+        DanoEletricidade += valor;
+
     }
     public override void AumentarVida()
     {
